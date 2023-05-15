@@ -1,0 +1,53 @@
+{
+    "ParameterTableFile": {
+        "id": "Probe",
+        "date": "1367560473",
+        "major": 0,
+        "minor": 45,
+        "parameters": {
+          "ptsa_system": [
+            {"name": "calibStatus",				"addr": 41003,"size": 1,"type": "uint16"},
+            {"name": "[PN]",					"addr": 41005,"size": 2,"type": "uint32"},
+            {"name": "userName",				"addr": 41007,"size": 8,"type": "char"},
+            {"name": "[SN]",					"addr": 41015,"size": 8,"type": "char"},
+            {"name": "hardwareVer",				"addr": 41023,"size": 8,"type": "char"},
+            {"name": "softwareVer",				"addr": 41031,"size": 8,"type": "char"},
+            {"name": "Command",					"addr": 41040,"size": 1,"type": "uint16"},
+            {"name": "userPN","addr": 41049,"size": 2,"type": "uint32"},
+			
+			
+            {"name": "modbusAddr",				"addr": 42001,"size": 1,"type": "uint16"},
+            {"name": "modbusDatabits",			"addr": 42002,"size": 1,"type": "uint16"},
+            {"name": "modbusParity",			"addr": 42003,"size": 1,"type": "uint16"},
+            {"name": "modbusBaud",				"addr": 42004,"size": 2,"type": "uint32"},
+			
+            {"name": "sampleCycle",				"addr": 43001,"size": 1,"type": "uint16"},
+            {"name": "smoothing",				"addr": 43004,"size": 2,"type": "float"},
+            {"name": "command",					"addr": 43006,"size": 1,"type": "uint16"},
+            {"name": "RTDR0",				"addr": 43013,"size": 2,"type": "float"},
+            {"name": "GainConfigurationResistor",			"addr": 43017,"size": 2,"type": "float"},
+			
+            {"name": "CommandRegister",				"addr": 44004,"size": 1,"type": "uint16"},
+            {"name": "ConductivityCoefficient",				"addr": 44005,"size": 2,"type": "float"},
+            {"name": "sample_min",				"addr": 44007,"size": 2,"type": "float"},
+            {"name": "sample_max",				"addr": 44009,"size": 2,"type": "float"},
+            {"name": "Sample",					"addr": 44011,"size": 2,"type": "float"},
+			
+            {"name": "AO_min",					"addr": 45002,"size": 2,"type": "uint32"},
+            {"name": "AO_max",					"addr": 45004,"size": 2,"type": "uint32"},
+			{"name": "autoGainEnable",			"addr": 45010,"size": 1,"type": "uint16"},
+			{"name": "pgaGainSet",				"addr": 45011,"size": 1,"type": "uint16"},
+			{"name": "autoDrvEnable",			"addr": 45012,"size": 1,"type": "uint16"},
+			{"name": "drvSet",					"addr": 45013,"size": 1,"type": "uint16"},
+			
+            {"name": "Cond",					"addr": 46001,"size": 2,"type": "float"},
+            {"name": "Temp",					"addr": 46005,"size": 2,"type": "float"},
+			
+            {"name": "RG_1",					"addr": 48003,"size": 2,"type": "float"},
+            {"name": "RG_2",					"addr": 48005,"size": 2,"type": "float"},
+            {"name": "RG_3",					"addr": 48007,"size": 2,"type": "float"},
+            {"name": "Vcut",					"addr": 48017,"size": 2,"type": "float"}
+          ]
+        }
+    }
+}
