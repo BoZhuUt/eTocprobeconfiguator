@@ -209,54 +209,60 @@ namespace eTocprobeconfiguator
             {
                 ReadParameterButton.Enabled = false;
                 isRefreshing = true;
-                await Task.Delay(1000);
-                dataGridView1.DataSource = null;
-                dataGridView1.Invalidate();
-                RegParaList.Clear();
-                RegParaList = getJson.GetRegPara(Resources.parameTOC);
-                for (int i = 0; i < RegParaList.Count; i++)
+                if (isProbe1Enable)
                 {
-                    string[] res = rwReg.parameterGettingContinuous(proeb1Addr, (ushort)(RegParaList[i].addr - 1), RegParaList[i].size, RegParaList[i].type, port);
-                    if (res[0] == "Success")
+                    await Task.Delay(1000);
+                    dataGridView1.DataSource = null;
+                    dataGridView1.Invalidate();
+                    RegParaList.Clear();
+                    RegParaList = getJson.GetRegPara(Resources.parameTOC);
+                    for (int i = 0; i < RegParaList.Count; i++)
                     {
-                        RegParaList[i].value = res[1];
+                        string[] res = rwReg.parameterGettingContinuous(proeb1Addr, (ushort)(RegParaList[i].addr - 1), RegParaList[i].size, RegParaList[i].type, port);
+                        if (res[0] == "Success")
+                        {
+                            RegParaList[i].value = res[1];
+                        }
+                        else
+                        {
+                            RegParaList[i].value = res[0]; continue;
+                        }
                     }
-                    else 
-                    { 
-                        RegParaList[i].value = res[0]; continue;
+                    dataGridView1.DataSource = RegParaList;
+                    await Task.Delay(1000);
+                    for (int i = 0; i < 4; i++)
+                    {
+                        dataGridView1.Columns[i].ReadOnly = true;
+                        dataGridView1.Columns[i].DefaultCellStyle.ForeColor = Color.Blue;
                     }
-                }
-                dataGridView1.DataSource = RegParaList;
-                await Task.Delay(1000);
-                for (int i = 0; i < 4; i++)
-                {
-                    dataGridView1.Columns[i].ReadOnly = true;
-                    dataGridView1.Columns[i].DefaultCellStyle.ForeColor = Color.Blue;
                 }
                 //探头二参数表
-                await Task.Delay(1000);
-                dataGridView2.DataSource = null;
-                dataGridView2.Invalidate();
-                RegParaList2.Clear();
-                RegParaList2 = getJson.GetRegPara(Resources.parameTOC);
-                for (int i = 0; i < RegParaList2.Count; i++)
+                if (isProbe2Enable)
                 {
-                    string[] res2 = rwReg.parameterGettingContinuous(proeb2Addr, (ushort)(RegParaList2[i].addr - 1), RegParaList2[i].size, RegParaList2[i].type, port);
-                    if (res2[0] == "Success")
+                    await Task.Delay(1000);
+                    dataGridView2.DataSource = null;
+                    dataGridView2.Invalidate();
+                    RegParaList2.Clear();
+                    RegParaList2 = getJson.GetRegPara(Resources.parameTOC);
+                    for (int i = 0; i < RegParaList2.Count; i++)
                     {
-                        RegParaList2[i].value = res2[1];
+                        string[] res2 = rwReg.parameterGettingContinuous(proeb2Addr, (ushort)(RegParaList2[i].addr - 1), RegParaList2[i].size, RegParaList2[i].type, port);
+                        if (res2[0] == "Success")
+                        {
+                            RegParaList2[i].value = res2[1];
+                        }
+                        else
+                        {
+                            RegParaList2[i].value = res2[0]; continue;
+                        }
                     }
-                    else
+                    dataGridView2.DataSource = RegParaList2;
+                    await Task.Delay(1000);
+                    for (int i = 0; i < 4; i++)
                     {
-                        RegParaList2[i].value = res2[0]; continue;
+                        dataGridView2.Columns[i].ReadOnly = true;
+                        dataGridView2.Columns[i].DefaultCellStyle.ForeColor = Color.Blue;
                     }
-                }
-                dataGridView2.DataSource = RegParaList2;
-                await Task.Delay(1000);
-                for (int i = 0; i < 4; i++)
-                {
-                    dataGridView2.Columns[i].ReadOnly = true;
-                    dataGridView2.Columns[i].DefaultCellStyle.ForeColor = Color.Blue;
                 }
                 isRefreshing = false;
                 ReadParameterButton.Enabled = true;
@@ -315,61 +321,67 @@ namespace eTocprobeconfiguator
             ArrayList position = new ArrayList();
             PTSA_SystemItem temp = new PTSA_SystemItem();
             WriteParameterButton.Enabled = false;
-            foreach (DictionaryEntry item in regChangeHash)
+            if (isProbe1Enable)
             {
-                regChange.Add(RegParaList[(int)item.Key]);
-                position.Add((int)item.Key);
-            }
-            for (int i = 0; i < regChange.Count && result == "Success"; i++)
-            {
-                temp = regChange[i];
-                try
+                foreach (DictionaryEntry item in regChangeHash)
                 {
-                    result = rwReg.parameterSetting(proeb1Addr, (ushort)(temp.addr - 1), (byte)temp.size, temp.value.Replace(" ", ""), temp.type, port);
-                    if (result == "Success")
+                    regChange.Add(RegParaList[(int)item.Key]);
+                    position.Add((int)item.Key);
+                }
+                for (int i = 0; i < regChange.Count && result == "Success"; i++)
+                {
+                    temp = regChange[i];
+                    try
                     {
-                        dataGridView1[4, (int)position[i]].Style.ForeColor = Color.Black;
+                        result = rwReg.parameterSetting(proeb1Addr, (ushort)(temp.addr - 1), (byte)temp.size, temp.value.Replace(" ", ""), temp.type, port);
+                        if (result == "Success")
+                        {
+                            dataGridView1[4, (int)position[i]].Style.ForeColor = Color.Black;
+                        }
+                        else
+                        {
+                            MessageBox.Show(result);
+                            break;
+                        }
+
                     }
-                    else
+                    catch (FormatException)
                     {
-                        MessageBox.Show(result);
+                        MessageBox.Show($"{dataGridView1[0, (int)position[i]].Value} parameter erro");
                         break;
                     }
+                }
+            }
+            if (isProbe2Enable)
+            {
+                await Task.Delay(50);
+                foreach (DictionaryEntry item in regChangeHash2)
+                {
+                    regChange.Add(RegParaList2[(int)item.Key]);
+                    position.Add((int)item.Key);
+                }
+                for (int i = 0; i < regChange.Count && result == "Success"; i++)
+                {
+                    temp = regChange[i];
+                    try
+                    {
+                        result = rwReg.parameterSetting(proeb2Addr, (ushort)(temp.addr - 1), (byte)temp.size, temp.value.Replace(" ", ""), temp.type, port);
+                        if (result == "Success")
+                        {
+                            dataGridView2[4, (int)position[i]].Style.ForeColor = Color.Black;
+                        }
+                        else
+                        {
+                            MessageBox.Show(result);
+                            break;
+                        }
 
-                }
-                catch (FormatException)
-                {
-                    MessageBox.Show($"{dataGridView1[0, (int)position[i]].Value} parameter erro");
-                    break;
-                }
-            }
-            await Task.Delay(50);
-            foreach (DictionaryEntry item in regChangeHash2)
-            {
-                regChange.Add(RegParaList2[(int)item.Key]);
-                position.Add((int)item.Key);
-            }
-            for (int i = 0; i < regChange.Count && result == "Success"; i++)
-            {
-                temp = regChange[i];
-                try
-                {
-                    result = rwReg.parameterSetting(proeb2Addr, (ushort)(temp.addr - 1), (byte)temp.size, temp.value.Replace(" ", ""), temp.type, port);
-                    if (result == "Success")
-                    {
-                        dataGridView2[4, (int)position[i]].Style.ForeColor = Color.Black;
                     }
-                    else
+                    catch (FormatException)
                     {
-                        MessageBox.Show(result);
+                        MessageBox.Show($"{dataGridView2[0, (int)position[i]].Value} parameter erro");
                         break;
                     }
-
-                }
-                catch (FormatException)
-                {
-                    MessageBox.Show($"{dataGridView2[0, (int)position[i]].Value} parameter erro");
-                    break;
                 }
             }
             WriteParameterButton.Enabled = true;
@@ -653,12 +665,10 @@ namespace eTocprobeconfiguator
                     {
                         port.Open();
                     }
-                    if (isProbe1Enable)
-                    {
                         if (isProbe1Enable)
                         {
-                            ushort[] data1 = master.ReadHoldingRegisters(proeb1Addr, 46001 - 1, 28);
-                            Res1 = ReturnFloatType(data1[1], data1[0]);
+                            ushort[] data1 = master.ReadHoldingRegisters(proeb1Addr, 46001 - 1, 50);
+                            Res1 = ReturnFloatType(data1[40], data1[39]);
                             conduction1 = 1 / Res1 * 1000000;
                             probe1Res.Text = "Res1:  " +  Res1.ToString("F1");
                             probe1Condction.Text = "conduction1: " + conduction1.ToString("F2");
@@ -669,8 +679,8 @@ namespace eTocprobeconfiguator
                         }
                         if (isProbe2Enable)
                         {
-                            ushort[] data2 = master.ReadHoldingRegisters(proeb2Addr, 46001 - 1, 28);
-                            Res2 = ReturnFloatType(data2[1], data2[0]);
+                            ushort[] data2 = master.ReadHoldingRegisters(proeb2Addr, 46001 - 1, 50);
+                            Res2 = ReturnFloatType(data2[40], data2[39]);
                             conduction2 = 1 / Res2 * 1000000;
                             probe2Res.Text = "Res2:  " + Res2.ToString("F1");
                             probe2Conduction.Text = "conduction2: " + conduction2.ToString("F2");
@@ -690,8 +700,6 @@ namespace eTocprobeconfiguator
                             ushort[] data4 = master.ReadHoldingRegisters(mA1Addr, 46001 - 1, 28);
                             readTimeout = 0;
                         }
-                        
-                    }
                 }
                 catch (Exception ex)
                 {
