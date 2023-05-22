@@ -52,7 +52,10 @@ namespace eTocprobeconfiguator
         string measureValuePath_1;
         string measureValuePath_2;
         string measureValuePath_3;
-        UInt16 readTimeout = 0;
+        string measureValuePath_mA1;
+        UInt16 readTimeoutProbe1 = 0;
+        UInt16 readTimeoutProbe2 = 0;
+        UInt16 readTimeoutMA1 = 0;
         void InitPort(bool prompt = true)
         {
             SearchPort(prompt);
@@ -97,7 +100,7 @@ namespace eTocprobeconfiguator
         private void LoadChart()
         {        
             string[] chartST72XTypes = new string[] { "conduction", "conductivity", "Res", "temperature" };
-            string[] chartmATypes = new string[] { "mA" };
+            string[] chartmATypes = new string[] { "mA1" };
             Measurement_Chart_1.Series.Clear();
             Measurement_Chart_1.Legends.Clear();
             ChartType_ComboBox_1.Items.Clear();
@@ -507,7 +510,24 @@ namespace eTocprobeconfiguator
         }
         private void buttonmAaddr1Enable_Click(object sender, EventArgs e)
         {
-
+            try
+            {
+                if (buttonmAaddr1Enable.Text == "Enable")
+                {
+                    ismA1Enable = true;
+                    mA1Addr = Convert.ToByte(textBox_mAaddr1.Text);
+                    buttonmAaddr1Enable.Text = "Disable";
+                }
+                else
+                {
+                    ismA1Enable = false;
+                    buttonmAaddr1Enable.Text = "Enable";
+                }
+            }
+            catch
+            {
+                MessageBox.Show("请输入正确的地址");
+            }
         }
 
         private async void Connect_Btn_ClickAsync(object sender, EventArgs e)
@@ -569,10 +589,11 @@ namespace eTocprobeconfiguator
                             }
                             if (ismA1Enable == true)
                             {
-                                ushort[] serialnum = master.ReadHoldingRegisters(mA1Addr, (ushort)(41015 - 1), 2);
-                                string snString = getCharType(serialnum);
-                                label_mA1SN.Text = "mA1 SN : " + snString;
-                                mA1SN = snString;
+                                //ushort[] serialnum = master.ReadHoldingRegisters(mA1Addr, (ushort)(41015 - 1), 2);
+                                //string snString = getCharType(serialnum);
+                                label_mA1SN.Text = "mA1 SN : " + "0001";
+                                mA1SN ="001";
+                                measureValuePath_mA1 = " MA1__measureValue.csv";
                             }
 
                             isConnected= true;
@@ -621,6 +642,11 @@ namespace eTocprobeconfiguator
                 {
                     File.WriteAllText(measureValuePath_2, "date,Res,conduction\r\n");
                 }
+                if ((!File.Exists(measureValuePath_mA1)) && (ismA1Enable == true))
+                {
+                    File.WriteAllText(measureValuePath_mA1, "date,Res,conduction\r\n");
+                }
+
                 //if (!File.Exists(measureValuePath_3))
                 //{
                 //    File.WriteAllText(measureValuePath_3, "date,measureValue,temperature,t365,s365,t420,s420\r\n");
@@ -647,9 +673,10 @@ namespace eTocprobeconfiguator
 
         private void MeasurementTimer_Tick(object sender, EventArgs e)
         {
-            Single conduction1, conduction2;
-            Single conductivity ;
-            Single Res1,Res2,Res3 ;
+            Single conduction1 = 0.0F, conduction2 = 0.0F;
+            Single conductivity = 0.0F;
+            Single Res1 = 0.0F, Res2 = 0.0F, Res3 = 0.0F;
+            Single mA1 = 0.0F;
             if (!isPortExist)
             {
                 InitPort(false);
@@ -665,8 +692,10 @@ namespace eTocprobeconfiguator
                     {
                         port.Open();
                     }
-                        if (isProbe1Enable)
-                        {
+                    if (isProbe1Enable)
+                    {
+                        try
+                        {                            
                             ushort[] data1 = master.ReadHoldingRegisters(proeb1Addr, 46001 - 1, 50);
                             Res1 = ReturnFloatType(data1[40], data1[39]);
                             conduction1 = 1 / Res1 * 1000000;
@@ -674,10 +703,22 @@ namespace eTocprobeconfiguator
                             probe1Condction.Text = "conduction1: " + conduction1.ToString("F2");
                             Measurement_Chart_1.Series["Res"].Points.AddXY(CrtTime, Res1);
                             Measurement_Chart_1.Series["conduction"].Points.AddXY(CrtTime, conduction1);
-                            File.AppendAllText(measureValuePath_1, CrtTime.ToString() + "," + Res1.ToString("F2") + "," + conduction1.ToString("F2") + "\r\n");
-                            readTimeout = 0;
+                            readTimeoutProbe1 = 0; 
                         }
-                        if (isProbe2Enable)
+                        catch (Exception ex) 
+                        {
+                            readTimeoutProbe1++;
+                            if (readTimeoutProbe1 >= 4) 
+                            {
+                                isProbe1Enable = false;
+                                MessageBox.Show("Probe1 Error , please confirm !");
+                            }
+                        }
+                            
+                        }
+                    if (isProbe2Enable)
+                    {
+                        try
                         {
                             ushort[] data2 = master.ReadHoldingRegisters(proeb2Addr, 46001 - 1, 50);
                             Res2 = ReturnFloatType(data2[40], data2[39]);
@@ -686,30 +727,65 @@ namespace eTocprobeconfiguator
                             probe2Conduction.Text = "conduction2: " + conduction2.ToString("F2");
                             Measurement_Chart_2.Series["Res"].Points.AddXY(CrtTime, Res2);
                             Measurement_Chart_2.Series["conduction"].Points.AddXY(CrtTime, conduction2);
-                            File.AppendAllText(measureValuePath_2, CrtTime.ToString() + "," + Res2.ToString("F2")  + "," + conduction2.ToString("F2") + "\r\n");
-                            readTimeout = 0;
+                            readTimeoutProbe2 = 0;
                         }
-                        if (isProbe3Enable)
+                        catch (Exception ex) 
                         {
-                            ushort[] data3 = master.ReadHoldingRegisters(proeb3Addr, 46001 - 1, 28);
-                            readTimeout = 0;
+                            readTimeoutProbe2++;
+                            if (readTimeoutProbe2 >= 4)
+                            {
+                                isProbe2Enable = false;
+                                MessageBox.Show("Probe2 Error , please confirm !");
+                            }
+                        }                         
+                     }
+
+                    if (isProbe3Enable)
+                    {
+                        ushort[] data3 = master.ReadHoldingRegisters(proeb3Addr, 46001 - 1, 28);
+                        //readTimeout = 0;
+
+                    }
+                    if (ismA1Enable)
+                    {
+                        try
+                        {
+                            ushort[] data4 = master.ReadInputRegisters(mA1Addr, 1 - 1, 2);
+                            mA1 = (float)Math.Pow(10 , - (int)(data4[0] / 10000));
+                            mA1 = (data4[0] % 10000 ) * mA1 / 249 * 1000 ;
+                            label_MA1.Text ="mA: " + mA1.ToString("F3");
+                            Measurement_Chart_3.Series["mA1"].Points.AddXY(CrtTime, mA1);
+                            readTimeoutMA1 = 0;
+                        }
+                        catch (Exception ex)
+                        {
+                            readTimeoutMA1++;
+                            if (readTimeoutMA1 >= 40000)
+                            {
+                                ismA1Enable = false;
+                                MessageBox.Show("mA Error , please confirm !");
+                            }
 
                         }
-                        if (ismA1Enable)
+                        if ((readTimeoutProbe1 == 0) && (readTimeoutProbe2 == 0) )
                         {
-                            ushort[] data4 = master.ReadHoldingRegisters(mA1Addr, 46001 - 1, 28);
-                            readTimeout = 0;
+                            if (isProbe1Enable)
+                            {
+                                File.AppendAllText(measureValuePath_1, CrtTime.ToString() + "," + Res1.ToString("F2") + "," + conduction1.ToString("F2") + "\r\n");
+                            }
+                            if (isProbe2Enable)
+                            {
+                                File.AppendAllText(measureValuePath_2, CrtTime.ToString() + "," + Res2.ToString("F2") + "," + conduction2.ToString("F2") + "\r\n");
+                            }
                         }
+                    }
+
                 }
                 catch (Exception ex)
                 {
                     Console.WriteLine(ex.Message);
-                    readTimeout++;
-                    if(readTimeout >= 4)
-                    { 
-                        readTimeout = 0;
-                        MessageBox.Show("Read Error !");
-                    }
+                    MeasurementTimer.Enabled = false;
+                    MessageBox.Show("Read Error !");
                 }
             }
         }

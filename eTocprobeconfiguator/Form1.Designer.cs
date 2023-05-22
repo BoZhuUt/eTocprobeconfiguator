@@ -30,20 +30,20 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea11 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend11 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea12 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend12 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea13 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend13 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea14 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend14 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series9 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series10 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea15 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend15 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series11 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series12 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.eTocTab = new System.Windows.Forms.TabControl();
             this.main = new System.Windows.Forms.TabPage();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
@@ -79,6 +79,12 @@
             this.ChartType_ComboBox_2 = new System.Windows.Forms.ComboBox();
             this.ChartType_ComboBox_1 = new System.Windows.Forms.ComboBox();
             this.splitContainer3 = new System.Windows.Forms.SplitContainer();
+            this.dataShow1 = new System.Windows.Forms.GroupBox();
+            this.label_MA1 = new System.Windows.Forms.Label();
+            this.probe2Conduction = new System.Windows.Forms.Label();
+            this.probe1Condction = new System.Windows.Forms.Label();
+            this.probe2Res = new System.Windows.Forms.Label();
+            this.probe1Res = new System.Windows.Forms.Label();
             this.Read_Btn = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
@@ -90,21 +96,16 @@
             this.Measurement_Chart_3 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.Measurement_Chart_2 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.rawData = new System.Windows.Forms.TabPage();
+            this.splitContainer4 = new System.Windows.Forms.SplitContainer();
+            this.readWavrButton2 = new System.Windows.Forms.Button();
+            this.readWavrButton = new System.Windows.Forms.Button();
+            this.splitContainer5 = new System.Windows.Forms.SplitContainer();
+            this.rawDatachart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.rawDatachart2 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.serialPort1 = new System.IO.Ports.SerialPort(this.components);
             this.MeasurementTimer = new System.Windows.Forms.Timer(this.components);
             this.ReadParameterButton = new System.Windows.Forms.Button();
             this.WriteParameterButton = new System.Windows.Forms.Button();
-            this.splitContainer4 = new System.Windows.Forms.SplitContainer();
-            this.splitContainer5 = new System.Windows.Forms.SplitContainer();
-            this.readWavrButton = new System.Windows.Forms.Button();
-            this.rawDatachart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.rawDatachart2 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.readWavrButton2 = new System.Windows.Forms.Button();
-            this.dataShow1 = new System.Windows.Forms.GroupBox();
-            this.probe1Res = new System.Windows.Forms.Label();
-            this.probe2Res = new System.Windows.Forms.Label();
-            this.probe1Condction = new System.Windows.Forms.Label();
-            this.probe2Conduction = new System.Windows.Forms.Label();
             this.eTocTab.SuspendLayout();
             this.main.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -121,6 +122,7 @@
             this.splitContainer3.Panel1.SuspendLayout();
             this.splitContainer3.Panel2.SuspendLayout();
             this.splitContainer3.SuspendLayout();
+            this.dataShow1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -141,7 +143,6 @@
             this.splitContainer5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.rawDatachart1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rawDatachart2)).BeginInit();
-            this.dataShow1.SuspendLayout();
             this.SuspendLayout();
             // 
             // eTocTab
@@ -579,6 +580,70 @@
             this.splitContainer3.SplitterDistance = 146;
             this.splitContainer3.TabIndex = 10;
             // 
+            // dataShow1
+            // 
+            this.dataShow1.Controls.Add(this.label_MA1);
+            this.dataShow1.Controls.Add(this.probe2Conduction);
+            this.dataShow1.Controls.Add(this.probe1Condction);
+            this.dataShow1.Controls.Add(this.probe2Res);
+            this.dataShow1.Controls.Add(this.probe1Res);
+            this.dataShow1.Location = new System.Drawing.Point(0, 51);
+            this.dataShow1.Name = "dataShow1";
+            this.dataShow1.Size = new System.Drawing.Size(334, 92);
+            this.dataShow1.TabIndex = 10;
+            this.dataShow1.TabStop = false;
+            this.dataShow1.Text = "dataShow1";
+            // 
+            // label_MA1
+            // 
+            this.label_MA1.AutoSize = true;
+            this.label_MA1.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.label_MA1.Location = new System.Drawing.Point(8, 77);
+            this.label_MA1.Name = "label_MA1";
+            this.label_MA1.Size = new System.Drawing.Size(29, 12);
+            this.label_MA1.TabIndex = 4;
+            this.label_MA1.Text = "mA: ";
+            // 
+            // probe2Conduction
+            // 
+            this.probe2Conduction.AutoSize = true;
+            this.probe2Conduction.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.probe2Conduction.Location = new System.Drawing.Point(156, 47);
+            this.probe2Conduction.Name = "probe2Conduction";
+            this.probe2Conduction.Size = new System.Drawing.Size(35, 12);
+            this.probe2Conduction.TabIndex = 3;
+            this.probe2Conduction.Text = "COND2";
+            // 
+            // probe1Condction
+            // 
+            this.probe1Condction.AutoSize = true;
+            this.probe1Condction.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.probe1Condction.Location = new System.Drawing.Point(156, 20);
+            this.probe1Condction.Name = "probe1Condction";
+            this.probe1Condction.Size = new System.Drawing.Size(35, 12);
+            this.probe1Condction.TabIndex = 2;
+            this.probe1Condction.Text = "COND1";
+            // 
+            // probe2Res
+            // 
+            this.probe2Res.AutoSize = true;
+            this.probe2Res.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.probe2Res.Location = new System.Drawing.Point(8, 47);
+            this.probe2Res.Name = "probe2Res";
+            this.probe2Res.Size = new System.Drawing.Size(29, 12);
+            this.probe2Res.TabIndex = 1;
+            this.probe2Res.Text = "RES2";
+            // 
+            // probe1Res
+            // 
+            this.probe1Res.AutoSize = true;
+            this.probe1Res.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.probe1Res.Location = new System.Drawing.Point(8, 20);
+            this.probe1Res.Name = "probe1Res";
+            this.probe1Res.Size = new System.Drawing.Size(29, 12);
+            this.probe1Res.TabIndex = 0;
+            this.probe1Res.Text = "RES1";
+            // 
             // Read_Btn
             // 
             this.Read_Btn.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
@@ -673,12 +738,12 @@
             // 
             // Measurement_Chart_1
             // 
-            chartArea11.Name = "mainChartArea";
-            this.Measurement_Chart_1.ChartAreas.Add(chartArea11);
+            chartArea1.Name = "mainChartArea";
+            this.Measurement_Chart_1.ChartAreas.Add(chartArea1);
             this.Measurement_Chart_1.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend11.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Left;
-            legend11.Name = "Legend1";
-            this.Measurement_Chart_1.Legends.Add(legend11);
+            legend1.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Left;
+            legend1.Name = "Legend1";
+            this.Measurement_Chart_1.Legends.Add(legend1);
             this.Measurement_Chart_1.Location = new System.Drawing.Point(2, 2);
             this.Measurement_Chart_1.Margin = new System.Windows.Forms.Padding(2);
             this.Measurement_Chart_1.Name = "Measurement_Chart_1";
@@ -688,12 +753,12 @@
             // 
             // Measurement_Chart_3
             // 
-            chartArea12.Name = "mainChartArea";
-            this.Measurement_Chart_3.ChartAreas.Add(chartArea12);
+            chartArea2.Name = "mainChartArea";
+            this.Measurement_Chart_3.ChartAreas.Add(chartArea2);
             this.Measurement_Chart_3.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend12.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Left;
-            legend12.Name = "Legend1";
-            this.Measurement_Chart_3.Legends.Add(legend12);
+            legend2.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Left;
+            legend2.Name = "Legend1";
+            this.Measurement_Chart_3.Legends.Add(legend2);
             this.Measurement_Chart_3.Location = new System.Drawing.Point(2, 310);
             this.Measurement_Chart_3.Margin = new System.Windows.Forms.Padding(2);
             this.Measurement_Chart_3.Name = "Measurement_Chart_3";
@@ -703,12 +768,12 @@
             // 
             // Measurement_Chart_2
             // 
-            chartArea13.Name = "mainChartArea";
-            this.Measurement_Chart_2.ChartAreas.Add(chartArea13);
+            chartArea3.Name = "mainChartArea";
+            this.Measurement_Chart_2.ChartAreas.Add(chartArea3);
             this.Measurement_Chart_2.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend13.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Left;
-            legend13.Name = "Legend1";
-            this.Measurement_Chart_2.Legends.Add(legend13);
+            legend3.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Left;
+            legend3.Name = "Legend1";
+            this.Measurement_Chart_2.Legends.Add(legend3);
             this.Measurement_Chart_2.Location = new System.Drawing.Point(2, 156);
             this.Measurement_Chart_2.Margin = new System.Windows.Forms.Padding(2);
             this.Measurement_Chart_2.Name = "Measurement_Chart_2";
@@ -726,6 +791,112 @@
             this.rawData.TabIndex = 2;
             this.rawData.Text = "rawData";
             this.rawData.UseVisualStyleBackColor = true;
+            // 
+            // splitContainer4
+            // 
+            this.splitContainer4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer4.Location = new System.Drawing.Point(3, 3);
+            this.splitContainer4.Name = "splitContainer4";
+            // 
+            // splitContainer4.Panel1
+            // 
+            this.splitContainer4.Panel1.Controls.Add(this.readWavrButton2);
+            this.splitContainer4.Panel1.Controls.Add(this.readWavrButton);
+            // 
+            // splitContainer4.Panel2
+            // 
+            this.splitContainer4.Panel2.Controls.Add(this.splitContainer5);
+            this.splitContainer4.Size = new System.Drawing.Size(1098, 493);
+            this.splitContainer4.SplitterDistance = 366;
+            this.splitContainer4.TabIndex = 0;
+            // 
+            // readWavrButton2
+            // 
+            this.readWavrButton2.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.readWavrButton2.Location = new System.Drawing.Point(11, 70);
+            this.readWavrButton2.Margin = new System.Windows.Forms.Padding(2);
+            this.readWavrButton2.Name = "readWavrButton2";
+            this.readWavrButton2.Size = new System.Drawing.Size(89, 32);
+            this.readWavrButton2.TabIndex = 8;
+            this.readWavrButton2.Text = "ReadProbe2";
+            this.readWavrButton2.UseVisualStyleBackColor = true;
+            this.readWavrButton2.Click += new System.EventHandler(this.readWavrButton2_Click);
+            // 
+            // readWavrButton
+            // 
+            this.readWavrButton.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.readWavrButton.Location = new System.Drawing.Point(11, 22);
+            this.readWavrButton.Margin = new System.Windows.Forms.Padding(2);
+            this.readWavrButton.Name = "readWavrButton";
+            this.readWavrButton.Size = new System.Drawing.Size(89, 32);
+            this.readWavrButton.TabIndex = 7;
+            this.readWavrButton.Text = "ReadProbe1";
+            this.readWavrButton.UseVisualStyleBackColor = true;
+            this.readWavrButton.Click += new System.EventHandler(this.readWavrButton_Click);
+            // 
+            // splitContainer5
+            // 
+            this.splitContainer5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer5.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer5.Name = "splitContainer5";
+            this.splitContainer5.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // splitContainer5.Panel1
+            // 
+            this.splitContainer5.Panel1.Controls.Add(this.rawDatachart1);
+            // 
+            // splitContainer5.Panel2
+            // 
+            this.splitContainer5.Panel2.Controls.Add(this.rawDatachart2);
+            this.splitContainer5.Size = new System.Drawing.Size(728, 493);
+            this.splitContainer5.SplitterDistance = 246;
+            this.splitContainer5.TabIndex = 1;
+            // 
+            // rawDatachart1
+            // 
+            chartArea4.Name = "ChartArea1";
+            this.rawDatachart1.ChartAreas.Add(chartArea4);
+            this.rawDatachart1.Dock = System.Windows.Forms.DockStyle.Fill;
+            legend4.Name = "Legend1";
+            this.rawDatachart1.Legends.Add(legend4);
+            this.rawDatachart1.Location = new System.Drawing.Point(0, 0);
+            this.rawDatachart1.Name = "rawDatachart1";
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series1.Legend = "Legend1";
+            series1.Name = "Iadc";
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series2.Legend = "Legend1";
+            series2.Name = "Vadc";
+            this.rawDatachart1.Series.Add(series1);
+            this.rawDatachart1.Series.Add(series2);
+            this.rawDatachart1.Size = new System.Drawing.Size(728, 246);
+            this.rawDatachart1.TabIndex = 1;
+            this.rawDatachart1.Text = "chart2";
+            // 
+            // rawDatachart2
+            // 
+            chartArea5.Name = "ChartArea1";
+            this.rawDatachart2.ChartAreas.Add(chartArea5);
+            this.rawDatachart2.Dock = System.Windows.Forms.DockStyle.Fill;
+            legend5.Name = "Legend1";
+            this.rawDatachart2.Legends.Add(legend5);
+            this.rawDatachart2.Location = new System.Drawing.Point(0, 0);
+            this.rawDatachart2.Name = "rawDatachart2";
+            series3.ChartArea = "ChartArea1";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series3.Legend = "Legend1";
+            series3.Name = "Iadc";
+            series4.ChartArea = "ChartArea1";
+            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series4.Legend = "Legend1";
+            series4.Name = "Vadc";
+            this.rawDatachart2.Series.Add(series3);
+            this.rawDatachart2.Series.Add(series4);
+            this.rawDatachart2.Size = new System.Drawing.Size(728, 243);
+            this.rawDatachart2.TabIndex = 2;
+            this.rawDatachart2.Text = "chart2";
             // 
             // MeasurementTimer
             // 
@@ -757,165 +928,6 @@
             this.WriteParameterButton.UseVisualStyleBackColor = true;
             this.WriteParameterButton.Click += new System.EventHandler(this.WriteParameterButton_Click);
             // 
-            // splitContainer4
-            // 
-            this.splitContainer4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer4.Location = new System.Drawing.Point(3, 3);
-            this.splitContainer4.Name = "splitContainer4";
-            // 
-            // splitContainer4.Panel1
-            // 
-            this.splitContainer4.Panel1.Controls.Add(this.readWavrButton2);
-            this.splitContainer4.Panel1.Controls.Add(this.readWavrButton);
-            // 
-            // splitContainer4.Panel2
-            // 
-            this.splitContainer4.Panel2.Controls.Add(this.splitContainer5);
-            this.splitContainer4.Size = new System.Drawing.Size(1098, 493);
-            this.splitContainer4.SplitterDistance = 366;
-            this.splitContainer4.TabIndex = 0;
-            // 
-            // splitContainer5
-            // 
-            this.splitContainer5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer5.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer5.Name = "splitContainer5";
-            this.splitContainer5.Orientation = System.Windows.Forms.Orientation.Horizontal;
-            // 
-            // splitContainer5.Panel1
-            // 
-            this.splitContainer5.Panel1.Controls.Add(this.rawDatachart1);
-            // 
-            // splitContainer5.Panel2
-            // 
-            this.splitContainer5.Panel2.Controls.Add(this.rawDatachart2);
-            this.splitContainer5.Size = new System.Drawing.Size(728, 493);
-            this.splitContainer5.SplitterDistance = 246;
-            this.splitContainer5.TabIndex = 1;
-            // 
-            // readWavrButton
-            // 
-            this.readWavrButton.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.readWavrButton.Location = new System.Drawing.Point(11, 22);
-            this.readWavrButton.Margin = new System.Windows.Forms.Padding(2);
-            this.readWavrButton.Name = "readWavrButton";
-            this.readWavrButton.Size = new System.Drawing.Size(89, 32);
-            this.readWavrButton.TabIndex = 7;
-            this.readWavrButton.Text = "ReadProbe1";
-            this.readWavrButton.UseVisualStyleBackColor = true;
-            this.readWavrButton.Click += new System.EventHandler(this.readWavrButton_Click);
-            // 
-            // rawDatachart1
-            // 
-            chartArea14.Name = "ChartArea1";
-            this.rawDatachart1.ChartAreas.Add(chartArea14);
-            this.rawDatachart1.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend14.Name = "Legend1";
-            this.rawDatachart1.Legends.Add(legend14);
-            this.rawDatachart1.Location = new System.Drawing.Point(0, 0);
-            this.rawDatachart1.Name = "rawDatachart1";
-            series9.ChartArea = "ChartArea1";
-            series9.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series9.Legend = "Legend1";
-            series9.Name = "Iadc";
-            series10.ChartArea = "ChartArea1";
-            series10.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series10.Legend = "Legend1";
-            series10.Name = "Vadc";
-            this.rawDatachart1.Series.Add(series9);
-            this.rawDatachart1.Series.Add(series10);
-            this.rawDatachart1.Size = new System.Drawing.Size(728, 246);
-            this.rawDatachart1.TabIndex = 1;
-            this.rawDatachart1.Text = "chart2";
-            // 
-            // rawDatachart2
-            // 
-            chartArea15.Name = "ChartArea1";
-            this.rawDatachart2.ChartAreas.Add(chartArea15);
-            this.rawDatachart2.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend15.Name = "Legend1";
-            this.rawDatachart2.Legends.Add(legend15);
-            this.rawDatachart2.Location = new System.Drawing.Point(0, 0);
-            this.rawDatachart2.Name = "rawDatachart2";
-            series11.ChartArea = "ChartArea1";
-            series11.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series11.Legend = "Legend1";
-            series11.Name = "Iadc";
-            series12.ChartArea = "ChartArea1";
-            series12.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series12.Legend = "Legend1";
-            series12.Name = "Vadc";
-            this.rawDatachart2.Series.Add(series11);
-            this.rawDatachart2.Series.Add(series12);
-            this.rawDatachart2.Size = new System.Drawing.Size(728, 243);
-            this.rawDatachart2.TabIndex = 2;
-            this.rawDatachart2.Text = "chart2";
-            // 
-            // readWavrButton2
-            // 
-            this.readWavrButton2.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.readWavrButton2.Location = new System.Drawing.Point(11, 70);
-            this.readWavrButton2.Margin = new System.Windows.Forms.Padding(2);
-            this.readWavrButton2.Name = "readWavrButton2";
-            this.readWavrButton2.Size = new System.Drawing.Size(89, 32);
-            this.readWavrButton2.TabIndex = 8;
-            this.readWavrButton2.Text = "ReadProbe2";
-            this.readWavrButton2.UseVisualStyleBackColor = true;
-            this.readWavrButton2.Click += new System.EventHandler(this.readWavrButton2_Click);
-            // 
-            // dataShow1
-            // 
-            this.dataShow1.Controls.Add(this.probe2Conduction);
-            this.dataShow1.Controls.Add(this.probe1Condction);
-            this.dataShow1.Controls.Add(this.probe2Res);
-            this.dataShow1.Controls.Add(this.probe1Res);
-            this.dataShow1.Location = new System.Drawing.Point(0, 51);
-            this.dataShow1.Name = "dataShow1";
-            this.dataShow1.Size = new System.Drawing.Size(334, 92);
-            this.dataShow1.TabIndex = 10;
-            this.dataShow1.TabStop = false;
-            this.dataShow1.Text = "dataShow1";
-            // 
-            // probe1Res
-            // 
-            this.probe1Res.AutoSize = true;
-            this.probe1Res.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.probe1Res.Location = new System.Drawing.Point(8, 20);
-            this.probe1Res.Name = "probe1Res";
-            this.probe1Res.Size = new System.Drawing.Size(29, 12);
-            this.probe1Res.TabIndex = 0;
-            this.probe1Res.Text = "RES1";
-            // 
-            // probe2Res
-            // 
-            this.probe2Res.AutoSize = true;
-            this.probe2Res.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.probe2Res.Location = new System.Drawing.Point(8, 47);
-            this.probe2Res.Name = "probe2Res";
-            this.probe2Res.Size = new System.Drawing.Size(29, 12);
-            this.probe2Res.TabIndex = 1;
-            this.probe2Res.Text = "RES2";
-            // 
-            // probe1Condction
-            // 
-            this.probe1Condction.AutoSize = true;
-            this.probe1Condction.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.probe1Condction.Location = new System.Drawing.Point(156, 20);
-            this.probe1Condction.Name = "probe1Condction";
-            this.probe1Condction.Size = new System.Drawing.Size(35, 12);
-            this.probe1Condction.TabIndex = 2;
-            this.probe1Condction.Text = "COND1";
-            // 
-            // probe2Conduction
-            // 
-            this.probe2Conduction.AutoSize = true;
-            this.probe2Conduction.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.probe2Conduction.Location = new System.Drawing.Point(156, 47);
-            this.probe2Conduction.Name = "probe2Conduction";
-            this.probe2Conduction.Size = new System.Drawing.Size(35, 12);
-            this.probe2Conduction.TabIndex = 3;
-            this.probe2Conduction.Text = "COND2";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -925,7 +937,7 @@
             this.Controls.Add(this.ReadParameterButton);
             this.Controls.Add(this.eTocTab);
             this.Name = "Form1";
-            this.Text = "eTOCV01";
+            this.Text = "eTOCV02";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.eTocTab.ResumeLayout(false);
             this.main.ResumeLayout(false);
@@ -946,6 +958,8 @@
             this.splitContainer3.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).EndInit();
             this.splitContainer3.ResumeLayout(false);
+            this.dataShow1.ResumeLayout(false);
+            this.dataShow1.PerformLayout();
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -966,8 +980,6 @@
             this.splitContainer5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.rawDatachart1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rawDatachart2)).EndInit();
-            this.dataShow1.ResumeLayout(false);
-            this.dataShow1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1035,6 +1047,7 @@
         private System.Windows.Forms.Label probe1Condction;
         private System.Windows.Forms.Label probe2Res;
         private System.Windows.Forms.Label probe1Res;
+        private System.Windows.Forms.Label label_MA1;
     }
 }
 
