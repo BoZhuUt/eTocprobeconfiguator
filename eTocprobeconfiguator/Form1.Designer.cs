@@ -79,6 +79,7 @@
             this.ChartType_ComboBox_2 = new System.Windows.Forms.ComboBox();
             this.ChartType_ComboBox_1 = new System.Windows.Forms.ComboBox();
             this.splitContainer3 = new System.Windows.Forms.SplitContainer();
+            this.ClearData_Btn = new System.Windows.Forms.Button();
             this.dataShow1 = new System.Windows.Forms.GroupBox();
             this.label_MA1 = new System.Windows.Forms.Label();
             this.probe2Conduction = new System.Windows.Forms.Label();
@@ -92,9 +93,9 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.Measurement_Chart_1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.Measurement_Chart_3 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.Measurement_Chart_2 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.Measurement_Chart_1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.rawData = new System.Windows.Forms.TabPage();
             this.splitContainer4 = new System.Windows.Forms.SplitContainer();
             this.readWavrButton2 = new System.Windows.Forms.Button();
@@ -129,9 +130,9 @@
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Measurement_Chart_1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Measurement_Chart_3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Measurement_Chart_2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Measurement_Chart_1)).BeginInit();
             this.rawData.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer4)).BeginInit();
             this.splitContainer4.Panel1.SuspendLayout();
@@ -189,6 +190,7 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("splitContainer1.Panel2.BackgroundImage")));
+            this.splitContainer1.Panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.splitContainer1.Size = new System.Drawing.Size(971, 430);
             this.splitContainer1.SplitterDistance = 415;
             this.splitContainer1.TabIndex = 4;
@@ -570,6 +572,7 @@
             // 
             // splitContainer3.Panel1
             // 
+            this.splitContainer3.Panel1.Controls.Add(this.ClearData_Btn);
             this.splitContainer3.Panel1.Controls.Add(this.dataShow1);
             this.splitContainer3.Panel1.Controls.Add(this.Read_Btn);
             // 
@@ -579,6 +582,17 @@
             this.splitContainer3.Size = new System.Drawing.Size(422, 493);
             this.splitContainer3.SplitterDistance = 146;
             this.splitContainer3.TabIndex = 10;
+            // 
+            // ClearData_Btn
+            // 
+            this.ClearData_Btn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.ClearData_Btn.Location = new System.Drawing.Point(339, 102);
+            this.ClearData_Btn.Name = "ClearData_Btn";
+            this.ClearData_Btn.Size = new System.Drawing.Size(67, 38);
+            this.ClearData_Btn.TabIndex = 11;
+            this.ClearData_Btn.Text = "ClearData";
+            this.ClearData_Btn.UseVisualStyleBackColor = true;
+            this.ClearData_Btn.Click += new System.EventHandler(this.ClearData_Btn_Click);
             // 
             // dataShow1
             // 
@@ -722,9 +736,9 @@
             this.tableLayoutPanel1.BackColor = System.Drawing.Color.RosyBrown;
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Controls.Add(this.Measurement_Chart_1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.Measurement_Chart_3, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.Measurement_Chart_2, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.Measurement_Chart_1, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -736,29 +750,14 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(672, 493);
             this.tableLayoutPanel1.TabIndex = 2;
             // 
-            // Measurement_Chart_1
-            // 
-            chartArea1.Name = "mainChartArea";
-            this.Measurement_Chart_1.ChartAreas.Add(chartArea1);
-            this.Measurement_Chart_1.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend1.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Left;
-            legend1.Name = "Legend1";
-            this.Measurement_Chart_1.Legends.Add(legend1);
-            this.Measurement_Chart_1.Location = new System.Drawing.Point(2, 2);
-            this.Measurement_Chart_1.Margin = new System.Windows.Forms.Padding(2);
-            this.Measurement_Chart_1.Name = "Measurement_Chart_1";
-            this.Measurement_Chart_1.Size = new System.Drawing.Size(668, 150);
-            this.Measurement_Chart_1.TabIndex = 5;
-            this.Measurement_Chart_1.Text = "chart1";
-            // 
             // Measurement_Chart_3
             // 
-            chartArea2.Name = "mainChartArea";
-            this.Measurement_Chart_3.ChartAreas.Add(chartArea2);
+            chartArea1.Name = "mainChartArea";
+            this.Measurement_Chart_3.ChartAreas.Add(chartArea1);
             this.Measurement_Chart_3.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend2.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Left;
-            legend2.Name = "Legend1";
-            this.Measurement_Chart_3.Legends.Add(legend2);
+            legend1.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Left;
+            legend1.Name = "Legend1";
+            this.Measurement_Chart_3.Legends.Add(legend1);
             this.Measurement_Chart_3.Location = new System.Drawing.Point(2, 310);
             this.Measurement_Chart_3.Margin = new System.Windows.Forms.Padding(2);
             this.Measurement_Chart_3.Name = "Measurement_Chart_3";
@@ -768,18 +767,33 @@
             // 
             // Measurement_Chart_2
             // 
-            chartArea3.Name = "mainChartArea";
-            this.Measurement_Chart_2.ChartAreas.Add(chartArea3);
+            chartArea2.Name = "mainChartArea";
+            this.Measurement_Chart_2.ChartAreas.Add(chartArea2);
             this.Measurement_Chart_2.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend3.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Left;
-            legend3.Name = "Legend1";
-            this.Measurement_Chart_2.Legends.Add(legend3);
+            legend2.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Left;
+            legend2.Name = "Legend1";
+            this.Measurement_Chart_2.Legends.Add(legend2);
             this.Measurement_Chart_2.Location = new System.Drawing.Point(2, 156);
             this.Measurement_Chart_2.Margin = new System.Windows.Forms.Padding(2);
             this.Measurement_Chart_2.Name = "Measurement_Chart_2";
             this.Measurement_Chart_2.Size = new System.Drawing.Size(668, 150);
             this.Measurement_Chart_2.TabIndex = 6;
             this.Measurement_Chart_2.Text = "chart1";
+            // 
+            // Measurement_Chart_1
+            // 
+            chartArea3.Name = "mainChartArea";
+            this.Measurement_Chart_1.ChartAreas.Add(chartArea3);
+            this.Measurement_Chart_1.Dock = System.Windows.Forms.DockStyle.Fill;
+            legend3.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Left;
+            legend3.Name = "Legend1";
+            this.Measurement_Chart_1.Legends.Add(legend3);
+            this.Measurement_Chart_1.Location = new System.Drawing.Point(2, 2);
+            this.Measurement_Chart_1.Margin = new System.Windows.Forms.Padding(2);
+            this.Measurement_Chart_1.Name = "Measurement_Chart_1";
+            this.Measurement_Chart_1.Size = new System.Drawing.Size(668, 150);
+            this.Measurement_Chart_1.TabIndex = 5;
+            this.Measurement_Chart_1.Text = "chart1";
             // 
             // rawData
             // 
@@ -933,11 +947,11 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1111, 581);
+            this.Controls.Add(this.eTocTab);
             this.Controls.Add(this.WriteParameterButton);
             this.Controls.Add(this.ReadParameterButton);
-            this.Controls.Add(this.eTocTab);
             this.Name = "Form1";
-            this.Text = "eTOCV02";
+            this.Text = "eTOCV03";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.eTocTab.ResumeLayout(false);
             this.main.ResumeLayout(false);
@@ -966,9 +980,9 @@
             this.tabPage2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.Measurement_Chart_1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Measurement_Chart_3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Measurement_Chart_2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Measurement_Chart_1)).EndInit();
             this.rawData.ResumeLayout(false);
             this.splitContainer4.Panel1.ResumeLayout(false);
             this.splitContainer4.Panel2.ResumeLayout(false);
@@ -1048,6 +1062,7 @@
         private System.Windows.Forms.Label probe2Res;
         private System.Windows.Forms.Label probe1Res;
         private System.Windows.Forms.Label label_MA1;
+        private System.Windows.Forms.Button ClearData_Btn;
     }
 }
 

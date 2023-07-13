@@ -840,5 +840,21 @@ namespace eTocprobeconfiguator
             GetData(rawDatachart2, rawDatachart2);
             readWavrButton2.Enabled = true;
         }
+
+        private void ClearData_Btn_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < Measurement_Chart_1.Series.Count; i++)
+            {
+                Measurement_Chart_1.Series[i].Points.Clear();
+            }
+            for (int i = 0; i < Measurement_Chart_2.Series.Count; i++)
+            {
+                Measurement_Chart_2.Series[i].Points.Clear();
+            }
+            for (int i = 0; i < Measurement_Chart_3.Series.Count; i++)
+            {
+                Measurement_Chart_3.Series[i].Points.Clear();
+            }
+        }
     }
 }
