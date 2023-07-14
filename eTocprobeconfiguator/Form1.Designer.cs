@@ -951,7 +951,7 @@
             this.Controls.Add(this.WriteParameterButton);
             this.Controls.Add(this.ReadParameterButton);
             this.Name = "Form1";
-            this.Text = "eTOCV03";
+            this.Text = "eTOCV04";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.eTocTab.ResumeLayout(false);
             this.main.ResumeLayout(false);

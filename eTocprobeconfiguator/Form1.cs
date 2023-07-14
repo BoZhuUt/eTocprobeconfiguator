@@ -438,7 +438,7 @@ namespace eTocprobeconfiguator
                     }
                     chart2.Series[0].Points.Clear();
                     chart2.Series[1].Points.Clear();
-                    for (int i = 0; i < 192; i++)
+                    for (int i = 0; i < 512; i++)
                     {
                         chart2.Series[0].Points.AddXY(i, cddata.CondIWave[i]);
                     }
@@ -685,7 +685,7 @@ namespace eTocprobeconfiguator
             }
             else
             {
-                 DateTime CrtTime = DateTime.Now;
+                DateTime CrtTime = DateTime.UtcNow;
                 try
                 {
                     if (!port.IsOpen)
@@ -708,7 +708,7 @@ namespace eTocprobeconfiguator
                         catch (Exception ex) 
                         {
                             readTimeoutProbe1++;
-                            if (readTimeoutProbe1 >= 4) 
+                            if (readTimeoutProbe1 >= 40) 
                             {
                                 isProbe1Enable = false;
                                 MessageBox.Show("Probe1 Error , please confirm !");
@@ -732,7 +732,7 @@ namespace eTocprobeconfiguator
                         catch (Exception ex) 
                         {
                             readTimeoutProbe2++;
-                            if (readTimeoutProbe2 >= 4)
+                            if (readTimeoutProbe2 >= 40)
                             {
                                 isProbe2Enable = false;
                                 MessageBox.Show("Probe2 Error , please confirm !");
@@ -768,13 +768,13 @@ namespace eTocprobeconfiguator
 
                         }
                     }
-                    if ((isProbe1Enable) && (readTimeoutProbe1 == 0))
+                    if ((isProbe1Enable) )//&& (readTimeoutProbe1 == 0))
                     {
-                        File.AppendAllText(measureValuePath_1, CrtTime.ToString() + "," + Res1.ToString("F2") + "," + conduction1.ToString("F2") + "\r\n");
+                        File.AppendAllText(measureValuePath_1, CrtTime.ToString() + "," + Res1.ToString("F2") + "," + conduction1.ToString("F4") + "\r\n");
                     }
-                    if ((isProbe2Enable) && (readTimeoutProbe2 == 0))
+                    if ((isProbe2Enable))// && (readTimeoutProbe2 == 0))
                     {
-                        File.AppendAllText(measureValuePath_2, CrtTime.ToString() + "," + Res2.ToString("F2") + "," + conduction2.ToString("F2") + "\r\n");
+                        File.AppendAllText(measureValuePath_2, CrtTime.ToString() + "," + Res2.ToString("F2") + "," + conduction2.ToString("F4") + "\r\n");
                     }
 
                 }
